@@ -57,6 +57,8 @@
       padding: 35px 15px;
     }
     .list-poiema .body ul {
+      overflow: hidden;
+      height: 510px;
       list-style: none;
     }
     .list-poiema .body li {
@@ -101,47 +103,77 @@
       </div>
     </div>
     <div class="body">
-      <ul>
-        <li>
+      <ul id="movie-list">
+        <!-- <li>
           <dl>
             <dt>한니발 시즌 1</dt>
             <dd>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Natus unde modi, nulla ex possimus fuga quia perferendis labore ratione, reiciendis dignissimos ipsam nobis, at eligendi nam similique praesentium aspernatur officia.</dd>
           </dl>
           <div class="thumb"><img src="./ot.jpg" alt=""></div>
-        </li>
-        <li>
-          <dl>
-            <dt>한니발 시즌 2</dt>
-            <dd>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Natus unde modi, nulla ex possimus fuga quia perferendis labore ratione, reiciendis dignissimos ipsam nobis, at eligendi nam similique praesentium aspernatur officia.</dd>
-          </dl>
-          <div class="thumb"><img src="./ot.jpg" alt=""></div>
-        </li>
-        <li>
-          <dl>
-            <dt>한니발 시즌 3</dt>
-            <dd>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Natus unde modi, nulla ex possimus fuga quia perferendis labore ratione, reiciendis dignissimos ipsam nobis, at eligendi nam similique praesentium aspernatur officia.</dd>
-          </dl>
-          <div class="thumb"><img src="./ot.jpg" alt=""></div>
-        </li>
-        <li>
-          <dl>
-            <dt>한니발 시즌 4</dt>
-            <dd>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Natus unde modi, nulla ex possimus fuga quia perferendis labore ratione, reiciendis dignissimos ipsam nobis, at eligendi nam similique praesentium aspernatur officia.</dd>
-          </dl>
-          <div class="thumb"><img src="./ot.jpg" alt=""></div>
-        </li>
-        <li>
-          <dl>
-            <dt>한니발 시즌 5</dt>
-            <dd>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Natus unde modi, nulla ex possimus fuga quia perferendis labore ratione, reiciendis dignissimos ipsam nobis, at eligendi nam similique praesentium aspernatur officia.</dd>
-          </dl>
-          <div class="thumb"><img src="./ot.jpg" alt=""></div>
-        </li>
+        </li> -->
       </ul>
     </div>
   </div>
   <script>
-  
+    (function () {
+      let movies = [];
+      const movieList = document.querySelector('#movie-list');
+      const btnMovie = document.querySelectorAll('.list-poiema .bbtn button');
+      
+      const renderMovie = () => {
+        const _movies = movies.filter(movie => movie);
+    
+        let html = '';
+        _movies.forEach(movie => {
+          html += `
+            <li data-id="${movie.id}">
+              <dl>
+                <dt>${movie.id}. ${movie.title}</dt>
+                <dd>${movie.content}</dd>
+              </dl>
+              <div class="thumb"><img src="${movie.src}" alt=""></div>
+            </li>
+          `;
+          return html;
+        });
+        movieList.innerHTML = html;
+      }
+
+      const getMovies = () => {
+        movies = [
+          { id: 1, title: `한니발 시즌`, src: './ot.jpg', content: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Natus unde modi, nulla ex possimus fuga quia perferendis labore ratione, reiciendis dignissimos ipsam nobis, at eligendi nam similique praesentium aspernatur officia.' },
+          { id: 2, title: `더 킹`, src: './ot.jpg', content: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Natus unde modi, nulla ex possimus fuga quia perferendis labore ratione, reiciendis dignissimos ipsam nobis, at eligendi nam similique praesentium aspernatur officia.' },
+          { id: 3, title: `변호인`, src: './ot.jpg', content: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Natus unde modi, nulla ex possimus fuga quia perferendis labore ratione, reiciendis dignissimos ipsam nobis, at eligendi nam similique praesentium aspernatur officia.' },
+          { id: 4, title: `지금 만나러 갑니다`, src: './ot.jpg', content: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Natus unde modi, nulla ex possimus fuga quia perferendis labore ratione, reiciendis dignissimos ipsam nobis, at eligendi nam similique praesentium aspernatur officia.' },
+          { id: 5, title: `악녀`, src: './ot.jpg', content: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Natus unde modi, nulla ex possimus fuga quia perferendis labore ratione, reiciendis dignissimos ipsam nobis, at eligendi nam similique praesentium aspernatur officia.' },
+          { id: 6, title: `1987`, src: './ot.jpg', content: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Natus unde modi, nulla ex possimus fuga quia perferendis labore ratione, reiciendis dignissimos ipsam nobis, at eligendi nam similique praesentium aspernatur officia.' },
+          { id: 7, title: `택시운전사`, src: './ot.jpg', content: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Natus unde modi, nulla ex possimus fuga quia perferendis labore ratione, reiciendis dignissimos ipsam nobis, at eligendi nam similique praesentium aspernatur officia.' },
+          { id: 8, title: `파이널 판타지`, src: './ot.jpg', content: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Natus unde modi, nulla ex possimus fuga quia perferendis labore ratione, reiciendis dignissimos ipsam nobis, at eligendi nam similique praesentium aspernatur officia.' },
+          { id: 9, title: `환상게임`, src: './ot.jpg', content: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Natus unde modi, nulla ex possimus fuga quia perferendis labore ratione, reiciendis dignissimos ipsam nobis, at eligendi nam similique praesentium aspernatur officia.' },
+          { id: 10, title: `파라다이스 키스`, src: './ot.jpg', content: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Natus unde modi, nulla ex possimus fuga quia perferendis labore ratione, reiciendis dignissimos ipsam nobis, at eligendi nam similique praesentium aspernatur officia.' },
+          { id: 11, title: `트와이스`, src: './ot.jpg', content: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Natus unde modi, nulla ex possimus fuga quia perferendis labore ratione, reiciendis dignissimos ipsam nobis, at eligendi nam similique praesentium aspernatur officia.' },
+        ];
+        renderMovie();
+      }
+
+      window.addEventListener('load', getMovies);
+      
+      for (let i = 0; i < btnMovie.length; i++) {
+        const EACH_REMOVE_ITEM = 5;
+        btnMovie[i].addEventListener('click', (e) => {
+          let selectBtn = e.currentTarget.getAttribute('class');
+          let updateMovie = [];
+          if (selectBtn === 'prev') {
+            updateMovie = movies.splice(-EACH_REMOVE_ITEM);
+            movies.unshift(...updateMovie);
+          } else if (selectBtn === 'next') {
+            updateMovie = movies.splice(0, EACH_REMOVE_ITEM);
+            movies.push(...updateMovie);
+          }
+          renderMovie();
+        });
+      }
+    }());
   </script>
 </body>
 </html>
