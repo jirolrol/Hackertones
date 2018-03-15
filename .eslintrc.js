@@ -16,6 +16,7 @@ module.exports = {
     "no-plusplus": ["error", { "allowForLoopAfterthoughts": true }],
     "comma-dangle": ["error", "never"],
     "func-names": [2, "never"],
-    "arrow-parens": ["error", "as-needed"]
+    "arrow-parens": ["error", "as-needed"],
+    "object-curly-newline": "off"
   }
 };
