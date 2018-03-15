@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Page Title</title>
+  <title>왓챠 컨텐츠 기능 구현 연습</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
     * {
@@ -118,10 +118,10 @@
     (function () {
       let movies = [];
       const movieList = document.querySelector('#movie-list');
-      const btnMovie = document.querySelectorAll('.list-poiema .bbtn button');
-      
+      const btnMovie = document.querySelector('.list-poiema .bbtn');
+    
       const renderMovie = () => {
-        const _movies = movies.filter(movie => movie);
+        const _movies = movies;
     
         let html = '';
         _movies.forEach(movie => {
@@ -137,42 +137,41 @@
           return html;
         });
         movieList.innerHTML = html;
-      }
+      };
 
       const getMovies = () => {
         movies = [
-          { id: 1, title: `한니발 시즌`, src: './ot.jpg', content: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Natus unde modi, nulla ex possimus fuga quia perferendis labore ratione, reiciendis dignissimos ipsam nobis, at eligendi nam similique praesentium aspernatur officia.' },
-          { id: 2, title: `더 킹`, src: './ot.jpg', content: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Natus unde modi, nulla ex possimus fuga quia perferendis labore ratione, reiciendis dignissimos ipsam nobis, at eligendi nam similique praesentium aspernatur officia.' },
-          { id: 3, title: `변호인`, src: './ot.jpg', content: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Natus unde modi, nulla ex possimus fuga quia perferendis labore ratione, reiciendis dignissimos ipsam nobis, at eligendi nam similique praesentium aspernatur officia.' },
-          { id: 4, title: `지금 만나러 갑니다`, src: './ot.jpg', content: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Natus unde modi, nulla ex possimus fuga quia perferendis labore ratione, reiciendis dignissimos ipsam nobis, at eligendi nam similique praesentium aspernatur officia.' },
-          { id: 5, title: `악녀`, src: './ot.jpg', content: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Natus unde modi, nulla ex possimus fuga quia perferendis labore ratione, reiciendis dignissimos ipsam nobis, at eligendi nam similique praesentium aspernatur officia.' },
-          { id: 6, title: `1987`, src: './ot.jpg', content: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Natus unde modi, nulla ex possimus fuga quia perferendis labore ratione, reiciendis dignissimos ipsam nobis, at eligendi nam similique praesentium aspernatur officia.' },
-          { id: 7, title: `택시운전사`, src: './ot.jpg', content: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Natus unde modi, nulla ex possimus fuga quia perferendis labore ratione, reiciendis dignissimos ipsam nobis, at eligendi nam similique praesentium aspernatur officia.' },
-          { id: 8, title: `파이널 판타지`, src: './ot.jpg', content: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Natus unde modi, nulla ex possimus fuga quia perferendis labore ratione, reiciendis dignissimos ipsam nobis, at eligendi nam similique praesentium aspernatur officia.' },
-          { id: 9, title: `환상게임`, src: './ot.jpg', content: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Natus unde modi, nulla ex possimus fuga quia perferendis labore ratione, reiciendis dignissimos ipsam nobis, at eligendi nam similique praesentium aspernatur officia.' },
-          { id: 10, title: `파라다이스 키스`, src: './ot.jpg', content: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Natus unde modi, nulla ex possimus fuga quia perferendis labore ratione, reiciendis dignissimos ipsam nobis, at eligendi nam similique praesentium aspernatur officia.' },
-          { id: 11, title: `트와이스`, src: './ot.jpg', content: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Natus unde modi, nulla ex possimus fuga quia perferendis labore ratione, reiciendis dignissimos ipsam nobis, at eligendi nam similique praesentium aspernatur officia.' },
+          { id: 1, title: '한니발 시즌', src: './ot.jpg', content: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Natus unde modi, nulla ex possimus fuga quia perferendis labore ratione, reiciendis dignissimos ipsam nobis, at eligendi nam similique praesentium aspernatur officia.' },
+          { id: 2, title: '더 킹', src: './ot.jpg', content: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Natus unde modi, nulla ex possimus fuga quia perferendis labore ratione, reiciendis dignissimos ipsam nobis, at eligendi nam similique praesentium aspernatur officia.' },
+          { id: 3, title: '변호인', src: './ot.jpg', content: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Natus unde modi, nulla ex possimus fuga quia perferendis labore ratione, reiciendis dignissimos ipsam nobis, at eligendi nam similique praesentium aspernatur officia.' },
+          { id: 4, title: '지금 만나러 갑니다', src: './ot.jpg', content: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Natus unde modi, nulla ex possimus fuga quia perferendis labore ratione, reiciendis dignissimos ipsam nobis, at eligendi nam similique praesentium aspernatur officia.' },
+          { id: 5, title: '악녀', src: './ot.jpg', content: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Natus unde modi, nulla ex possimus fuga quia perferendis labore ratione, reiciendis dignissimos ipsam nobis, at eligendi nam similique praesentium aspernatur officia.' },
+          { id: 6, title: '1987', src: './ot.jpg', content: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Natus unde modi, nulla ex possimus fuga quia perferendis labore ratione, reiciendis dignissimos ipsam nobis, at eligendi nam similique praesentium aspernatur officia.' },
+          { id: 7, title: '택시운전사', src: './ot.jpg', content: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Natus unde modi, nulla ex possimus fuga quia perferendis labore ratione, reiciendis dignissimos ipsam nobis, at eligendi nam similique praesentium aspernatur officia.' },
+          { id: 8, title: '파이널 판타지', src: './ot.jpg', content: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Natus unde modi, nulla ex possimus fuga quia perferendis labore ratione, reiciendis dignissimos ipsam nobis, at eligendi nam similique praesentium aspernatur officia.' },
+          { id: 9, title: '환상게임', src: './ot.jpg', content: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Natus unde modi, nulla ex possimus fuga quia perferendis labore ratione, reiciendis dignissimos ipsam nobis, at eligendi nam similique praesentium aspernatur officia.' },
+          { id: 10, title: '파라다이스 키스', src: './ot.jpg', content: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Natus unde modi, nulla ex possimus fuga quia perferendis labore ratione, reiciendis dignissimos ipsam nobis, at eligendi nam similique praesentium aspernatur officia.' },
+          { id: 11, title: '트와이스', src: './ot.jpg', content: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Natus unde modi, nulla ex possimus fuga quia perferendis labore ratione, reiciendis dignissimos ipsam nobis, at eligendi nam similique praesentium aspernatur officia.' }
         ];
         renderMovie();
-      }
+      };
 
       window.addEventListener('load', getMovies);
-      
-      for (let i = 0; i < btnMovie.length; i++) {
-        const EACH_REMOVE_ITEM = 5;
-        btnMovie[i].addEventListener('click', (e) => {
-          let selectBtn = e.currentTarget.getAttribute('class');
-          let updateMovie = [];
-          if (selectBtn === 'prev') {
-            updateMovie = movies.splice(-EACH_REMOVE_ITEM);
-            movies.unshift(...updateMovie);
-          } else if (selectBtn === 'next') {
-            updateMovie = movies.splice(0, EACH_REMOVE_ITEM);
-            movies.push(...updateMovie);
-          }
-          renderMovie();
-        });
-      }
+    
+      const EACH_REMOVE_ITEM = 5;
+      btnMovie.addEventListener('click', e => {
+        if (!e.target.nodeName === 'BUTTON') return;
+        const selectBtn = e.target.getAttribute('class');
+        let updateMovie = [];
+        if (selectBtn === 'prev') {
+          updateMovie = movies.splice(-EACH_REMOVE_ITEM);
+          movies.unshift(...updateMovie);
+        } else if (selectBtn === 'next') {
+          updateMovie = movies.splice(0, EACH_REMOVE_ITEM);
+          movies.push(...updateMovie);
+        }
+        renderMovie();
+      });
     }());
   </script>
 </body>
